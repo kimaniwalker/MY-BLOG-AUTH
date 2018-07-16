@@ -26,7 +26,8 @@ class NavBar extends Component {
                                     <Link className="text-white" to="/goodbye">Goodbye</Link>
                                 </div>
                                 <div className="col-9">
-                                
+                                <Link className="text-white" to="/newPost">Post A Blog</Link>
+                                <Link className="text-white" to="/blogs">Our Blogs</Link>
                                 </div>
                                 <div className="col-1">
                                 <AuthButton />
