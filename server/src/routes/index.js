@@ -17,8 +17,8 @@ router.route('*')
 
 router.use('/classes', classesRouter);
 
-router.use(tokenMiddleware);
-router.use(isLoggedIn);
+/* router.use(tokenMiddleware);
+router.use(isLoggedIn); */
  //used to block access to people & users route
 
 router.use('/people', peopleRouter);
