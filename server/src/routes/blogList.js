@@ -1,15 +1,11 @@
 import { Router } from 'express';
 import Table from '../table';
-import authRouter from './auth';
-import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
+
 
 let router = Router();
-router.use('/auth', authRouter);
 
-router.route('*')
-    .post(tokenMiddleware, isLoggedIn)
-    .put(tokenMiddleware, isLoggedIn)
-    .delete(tokenMiddleware, isLoggedIn);
+
+
 
 let blogs = new Table('blogs');
 
@@ -30,8 +26,7 @@ router.get('/:id', (req, res) => {
 })
 
 
-router.use(tokenMiddleware);
-router.use(isLoggedIn);
+
 
 router.post('/', (req, res) => {
     let blog = req.body;

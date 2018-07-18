@@ -7,8 +7,8 @@ class BlogInput extends Component {
         super(props);
         this.state = {
             title: '',
-            content:'',
-            
+            content: '',
+
         }
     }
 
@@ -21,19 +21,19 @@ class BlogInput extends Component {
     }
 
     onBtnClick(value) {
-console.log(value);
+        console.log(value);
         var para = document.createElement("P");                       // Create a <p> element
         var t = document.createTextNode(value);       // Create a text node
         para.appendChild(t);                                          // Append the text to <p>
         document.body.appendChild(para);
-        
-        fetch('/api/blogList', {
-            method:'POST',
-            body: JSON.stringify(value),
-            headers: new Headers({ 'Content-Type': 'application/json'})
-        })
 
-        
+        fetch('/api/blogList', {
+            method: 'POST',
+            body: JSON.stringify(value),
+            headers: new Headers({ 'Content-Type': 'application/json' })
+        })
+        console.log('hello');
+
 
     }
 
@@ -41,36 +41,37 @@ console.log(value);
         this.setState({ content: value });
     }
 
-    
+
 
 
     render() {
-            return (
-                <div>
-                    <form>
+        return (
+            <div>
+                <form>
                     <h1>{this.state.title}</h1>
                     <input
                         value={this.state.title}
                         onChange={(event) => this.onInputChange(event.target.value)}
                         placeholder="Title" />
 
-                        <h1>{this.state.content}</h1>
+                    <h1>{this.state.content}</h1>
                     <input
                         value={this.state.content}
                         onChange={(event) => this.onInputChangeContent(event.target.value)}
                         placeholder="Enter Content Here" />
 
-                    <button onClick={(event) => this.onBtnClick(this.state)}>Submit</button>
-                    </form>
-                </div>
-            );
+                    <button onClick={(event) => this.onBtnClick(this.state)}>Submit</button> 
+                    {/* <button onClick={this.onBtnClick.bind(this)}>Hello</button> */}
+                </form>
+            </div>
+        );
 
-            return (
-                <div>
-                    <h1>LOADING....</h1>
-                </div>
-            )
-        
+        return (
+            <div>
+                <h1>LOADING....</h1>
+            </div>
+        )
+
 
     }
 }
