@@ -21,18 +21,19 @@ class BlogInput extends Component {
     }
 
     onBtnClick(value) {
-
+console.log(value);
+        var para = document.createElement("P");                       // Create a <p> element
+        var t = document.createTextNode(value);       // Create a text node
+        para.appendChild(t);                                          // Append the text to <p>
+        document.body.appendChild(para);
+        
         fetch('/api/blogList', {
             method:'POST',
             body: JSON.stringify(value),
             headers: new Headers({ 'Content-Type': 'application/json'})
         })
 
-        /* console.log(value);
-        var para = document.createElement("P");                       // Create a <p> element
-        var t = document.createTextNode(value);       // Create a text node
-        para.appendChild(t);                                          // Append the text to <p>
-        document.body.appendChild(para); */
+        
 
     }
 
